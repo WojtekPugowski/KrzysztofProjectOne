@@ -1,0 +1,15 @@
+/Users/wojtekpugowski/dev/cSharp/Krzysztof/ProjectOne/ProjectOne/bin/Debug/net7.0/ProjectOne
+/Users/wojtekpugowski/dev/cSharp/Krzysztof/ProjectOne/ProjectOne/bin/Debug/net7.0/ProjectOne.deps.json
+/Users/wojtekpugowski/dev/cSharp/Krzysztof/ProjectOne/ProjectOne/bin/Debug/net7.0/ProjectOne.runtimeconfig.json
+/Users/wojtekpugowski/dev/cSharp/Krzysztof/ProjectOne/ProjectOne/bin/Debug/net7.0/ProjectOne.dll
+/Users/wojtekpugowski/dev/cSharp/Krzysztof/ProjectOne/ProjectOne/bin/Debug/net7.0/ProjectOne.pdb
+/Users/wojtekpugowski/dev/cSharp/Krzysztof/ProjectOne/ProjectOne/obj/Debug/net7.0/ProjectOne.csproj.AssemblyReference.cache
+/Users/wojtekpugowski/dev/cSharp/Krzysztof/ProjectOne/ProjectOne/obj/Debug/net7.0/ProjectOne.GeneratedMSBuildEditorConfig.editorconfig
+/Users/wojtekpugowski/dev/cSharp/Krzysztof/ProjectOne/ProjectOne/obj/Debug/net7.0/ProjectOne.AssemblyInfoInputs.cache
+/Users/wojtekpugowski/dev/cSharp/Krzysztof/ProjectOne/ProjectOne/obj/Debug/net7.0/ProjectOne.AssemblyInfo.cs
+/Users/wojtekpugowski/dev/cSharp/Krzysztof/ProjectOne/ProjectOne/obj/Debug/net7.0/ProjectOne.csproj.CoreCompileInputs.cache
+/Users/wojtekpugowski/dev/cSharp/Krzysztof/ProjectOne/ProjectOne/obj/Debug/net7.0/ProjectOne.dll
+/Users/wojtekpugowski/dev/cSharp/Krzysztof/ProjectOne/ProjectOne/obj/Debug/net7.0/refint/ProjectOne.dll
+/Users/wojtekpugowski/dev/cSharp/Krzysztof/ProjectOne/ProjectOne/obj/Debug/net7.0/ProjectOne.pdb
+/Users/wojtekpugowski/dev/cSharp/Krzysztof/ProjectOne/ProjectOne/obj/Debug/net7.0/ProjectOne.genruntimeconfig.cache
+/Users/wojtekpugowski/dev/cSharp/Krzysztof/ProjectOne/ProjectOne/obj/Debug/net7.0/ref/ProjectOne.dll

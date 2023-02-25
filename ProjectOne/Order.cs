@@ -9,7 +9,7 @@ namespace ProjectOne
 
         public DateTime OrderDate { get; set; }
         public int OrderNumber { get; set; }
-        public List<OrderItem> Items { get; set; }
+        public List<OrderItem> Items { get; set; } = new List<OrderItem>();
     }
 }
 

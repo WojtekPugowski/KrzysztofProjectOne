@@ -39,13 +39,18 @@ class Program
                     Console.WriteLine("Wybrałeś zły numer. Wybierz od 1-6");
                     break;
             }
-
         }
     }
 
-    private static void DeleteProduct(Repository repo)
+    private static void AddProduct(Repository repo)
     {
-        throw new NotImplementedException();
+        var productAdded = new Product();
+
+        productAdded.Name = AskUser<string>("Podaj nazwę produktu:");
+        productAdded.Price = AskUser<decimal>("Podaj cenę produktu:");
+        productAdded.Ean = AskUser<string>("Podaj kod produktu:");
+
+        repo.Products.Add(productAdded);
     }
 
     private static void ShowProducts(Repository repo)
@@ -53,23 +58,7 @@ class Program
         throw new NotImplementedException();
     }
 
-    private static void AddProduct(Repository repo)
-    {
-        var productAdded = new Product();
-
-        productAdded.Name = AskUser("Podaj nazwę produktu:");
-        productAdded.Price = AskUserAboutIntecimal("Podaj cenę produktu:");
-        productAdded.Ean = AskUser("Podaj kod produktu:");
-
-        repo.Products.Add(productAdded);
-    }
-
-    private static void DeleteClient(Repository repo)
-    {
-        throw new NotImplementedException();
-    }
-
-    private static void ShowClients(Repository repo)
+    private static void DeleteProduct(Repository repo)
     {
         throw new NotImplementedException();
     }
@@ -85,43 +74,88 @@ class Program
             case 1:
                 var companyClient = new CompanyClient();
 
-                companyClient.Name = AskUser("Podaj nazwę firmy:");
-                companyClient.NIP = AskUser("Podaj numer NIP:");
-                companyClient.Address.Street = AskUser("Podaj ulicę");
-                companyClient.Address.BuildingNumber = AskUser("Podaj numer budynku:");
-                companyClient.Address.LocalNumber = AskUser("Podaj numer lokalu:");
-                companyClient.Address.PostalCode = AskUser("Podaj kod pocztowy:");
-                companyClient.Address.City = AskUser("Podaj nazwę miasta:");
+                companyClient.Name = AskUser<string>("Podaj nazwę firmy:");
+                companyClient.NIP = AskUser<string>("Podaj numer NIP:");
+                companyClient.Address.Street = AskUser<string>("Podaj ulicę");
+                companyClient.Address.BuildingNumber = AskUser<string>("Podaj numer budynku:");
+                companyClient.Address.LocalNumber = AskUser<string>("Podaj numer lokalu:");
+                companyClient.Address.PostalCode = AskUser<string>("Podaj kod pocztowy:");
+                companyClient.Address.City = AskUser<string>("Podaj nazwę miasta:");
+                companyClient.Id = Guid.NewGuid();
 
                 repo.Clients.Add(companyClient);
                 break;
             case 2:
                 var privateClient = new PrivateClient();
 
-                privateClient.FirstName = AskUser("Podaj imię:");
-                privateClient.SecondName = AskUser("Podaj nazwisko:");
-                privateClient.Pesel = AskUser("Podaj numer PESEL:");
-                privateClient.Address.Street = AskUser("Podaj ulicę");
-                privateClient.Address.BuildingNumber = AskUser("Podaj numer budynku:");
-                privateClient.Address.LocalNumber = AskUser("Podaj numer lokalu:");
-                privateClient.Address.PostalCode = AskUser("Podaj kod pocztowy:");
-                privateClient.Address.City = AskUser("Podaj nazwę miasta:");
+                privateClient.FirstName = AskUser<string>("Podaj imię:");
+                privateClient.SecondName = AskUser<string>("Podaj nazwisko:");
+                privateClient.Pesel = AskUser<string>("Podaj numer PESEL:");
+                privateClient.Address.Street = AskUser<string>("Podaj ulicę");
+                privateClient.Address.BuildingNumber = AskUser<string>("Podaj numer budynku:");
+                privateClient.Address.LocalNumber = AskUser<string>("Podaj numer lokalu:");
+                privateClient.Address.PostalCode = AskUser<string>("Podaj kod pocztowy:");
+                privateClient.Address.City = AskUser<string>("Podaj nazwę miasta:");
+                privateClient.Id = Guid.NewGuid();
 
                 repo.Clients.Add(privateClient);
                 break;
         }
     }
 
-    private static string AskUser(string question)
+    private static void ShowClients(Repository repo)
     {
-        Console.WriteLine(question);
-        return Console.ReadLine();
+        throw new NotImplementedException();
     }
 
-    private static decimal AskUserAboutIntecimal(string question)
+    private static void DeleteClient(Repository repo)
+    {
+        var client = repo.Clients.FirstOrDefault(x => x.Id == AskUser<Guid>("Podaj numer ID"));
+        if (AskUser<string>($"Na pewno chcesz usunąć klienta o ID = {client.Id}? wybierz T lub N") == "T")
+        {
+            repo.Clients.Remove(client);
+        }
+    }
+
+    private static T? AskUser<T>(string question)
     {
         Console.WriteLine(question);
-        return decimal.Parse(Console.ReadLine());
+        if (typeof(T).Equals(typeof(String)))
+        {
+            return (T)(Console.ReadLine() as object);
+        }
+        else if (typeof(T).Equals(typeof(Decimal)))
+        {
+            do
+            {
+                try
+                {
+                    return (T)(object)decimal.Parse(Console.ReadLine() ?? string.Empty);
+                }
+                catch
+                {
+                    Console.WriteLine("Podaj poprawne dane w postaci liczbowej");
+                }
+
+            } while (true);
+        }
+        else if (typeof(T).Equals(typeof(Guid)))
+        {
+            do
+            {
+                try
+                {
+                    return (T)(object)Guid.Parse(Console.ReadLine() ?? string.Empty);
+                }
+                catch
+                {
+                    Console.WriteLine("Podaj poprawne dane ID");
+                }
+
+            } while (true);
+        }
+        else { return default(T); }
+
     }
 }
 

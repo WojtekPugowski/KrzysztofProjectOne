@@ -55,7 +55,13 @@ class Program
 
     private static void AddProduct(Repository repo)
     {
-        throw new NotImplementedException();
+        var productAdded = new Product();
+
+        productAdded.Name = AskUser("Podaj nazwę produktu:");
+        productAdded.Price = AskUserAboutIntecimal("Podaj cenę produktu:");
+        productAdded.Ean = AskUser("Podaj kod produktu:");
+
+        repo.Products.Add(productAdded);
     }
 
     private static void DeleteClient(Repository repo)
@@ -86,8 +92,22 @@ class Program
                 companyClient.Address.LocalNumber = AskUser("Podaj numer lokalu:");
                 companyClient.Address.PostalCode = AskUser("Podaj kod pocztowy:");
                 companyClient.Address.City = AskUser("Podaj nazwę miasta:");
-                
+
                 repo.Clients.Add(companyClient);
+                break;
+            case 2:
+                var privateClient = new PrivateClient();
+
+                privateClient.FirstName = AskUser("Podaj imię:");
+                privateClient.SecondName = AskUser("Podaj nazwisko:");
+                privateClient.Pesel = AskUser("Podaj numer PESEL:");
+                privateClient.Address.Street = AskUser("Podaj ulicę");
+                privateClient.Address.BuildingNumber = AskUser("Podaj numer budynku:");
+                privateClient.Address.LocalNumber = AskUser("Podaj numer lokalu:");
+                privateClient.Address.PostalCode = AskUser("Podaj kod pocztowy:");
+                privateClient.Address.City = AskUser("Podaj nazwę miasta:");
+
+                repo.Clients.Add(privateClient);
                 break;
         }
     }
@@ -96,6 +116,12 @@ class Program
     {
         Console.WriteLine(question);
         return Console.ReadLine();
+    }
+
+    private static decimal AskUserAboutIntecimal(string question)
+    {
+        Console.WriteLine(question);
+        return decimal.Parse(Console.ReadLine());
     }
 }
 

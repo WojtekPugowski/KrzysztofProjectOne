@@ -55,12 +55,21 @@ class Program
 
     private static void ShowProducts(Repository repo)
     {
-        throw new NotImplementedException();
+        var product = repo.Products.FirstOrDefault(x => x.Ean == AskUser<string>("Podaj numer EAN do wyświetlenia"));
+        if (product != null)
+        {
+            Console.WriteLine($"Nazwa produktu: {product.Name}, cena: {product.Price}, EAN: {product.Ean}\n");
+        }
+        else { Console.WriteLine("Nie ma w DB takiego EAN\n"); }
     }
 
     private static void DeleteProduct(Repository repo)
     {
-        throw new NotImplementedException();
+        var product = repo.Products.FirstOrDefault(x => x.Ean == AskUser<string>("Podaj numer EAN do usunięcia"));
+        if (AskUser<string>($"Na pewno chcesz usunąć produkt z EAN {product.Ean}? wybierz T lub N") == "T")
+        {
+            repo.Products.Remove(product);
+        }
     }
 
     private static void AddClient(Repository repo)
@@ -85,6 +94,7 @@ class Program
 
                 repo.Clients.Add(companyClient);
                 break;
+
             case 2:
                 var privateClient = new PrivateClient();
 
@@ -99,13 +109,14 @@ class Program
                 privateClient.Id = Guid.NewGuid();
 
                 repo.Clients.Add(privateClient);
+
                 break;
         }
     }
 
     private static void ShowClients(Repository repo)
     {
-        throw new NotImplementedException();
+        var client = repo.Clients.FirstOrDefault(x => x.Id == AskUser<Guid>("Podaj numer ID klienta, którego dane chcesz zobaczyć"));
     }
 
     private static void DeleteClient(Repository repo)

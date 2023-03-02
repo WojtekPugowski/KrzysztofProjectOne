@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Wojtek\\Source\\Repos\\KrzysztofProjectOne\\ProjectOne\\ProjectOne.csproj",
+      "projectUniqueName": "C:\\Users\\Wojtek\\source\\repos\\KrzysztofProjectOne\\ProjectOne\\ProjectOne.csproj",
       "projectName": "ProjectOne",
-      "projectPath": "C:\\Users\\Wojtek\\Source\\Repos\\KrzysztofProjectOne\\ProjectOne\\ProjectOne.csproj",
+      "projectPath": "C:\\Users\\Wojtek\\source\\repos\\KrzysztofProjectOne\\ProjectOne\\ProjectOne.csproj",
       "packagesPath": "C:\\Users\\Wojtek\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Wojtek\\Source\\Repos\\KrzysztofProjectOne\\ProjectOne\\obj\\",
+      "outputPath": "C:\\Users\\Wojtek\\source\\repos\\KrzysztofProjectOne\\ProjectOne\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Wojtek\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

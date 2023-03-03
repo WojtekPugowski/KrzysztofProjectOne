@@ -5,7 +5,7 @@ namespace ProjectOne
     {
 
         public string Name { get; set; }
-        public decimal Price { get; set; }
+        public Money Price { get; set; }
         public string Ean { get; set; }
 
         public Product()

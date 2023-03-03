@@ -6,12 +6,9 @@ namespace ProjectOne
         public PrivateClient()
         {
         }
-
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Pesel { get; set; }
-
-
     }
 }
 

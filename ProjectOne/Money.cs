@@ -21,6 +21,11 @@
         public decimal Price { get; }
         public string Currency { get; }
 
+        public static Money CreateNewFromPln(decimal price)
+        {
+            return new Money(price, "PLN");
+        }
+
         public override string ToString() => $"{Price} {Currency}";
 
     }
